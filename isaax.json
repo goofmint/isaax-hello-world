@@ -1,0 +1,12 @@
+{
+  "name": "ruby-app",
+  "version": "",
+  "description": "ruby - raspberry-pi",
+  "main": "app.rb",
+  "author": "",
+  "language":"ruby",
+  "license": "",
+  "scripts": {
+     "start": "ruby app.rb"
+  }
+}
