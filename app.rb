@@ -1,5 +1,5 @@
 STDOUT.sync = true
 while true do
-  puts "Hello Isaax, I'm Raspberry Pi."
+  puts "こんにちは Isaax, 私は Raspberry Piです。"
   sleep(5)
 end
