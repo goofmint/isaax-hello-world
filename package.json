@@ -1,0 +1,24 @@
+{
+  "name": "isaax-hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "@sendgrid/mail": "^6.2.1",
+    "superagent": "^3.8.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goofmint/isaax-hello-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/goofmint/isaax-hello-world/issues"
+  },
+  "homepage": "https://github.com/goofmint/isaax-hello-world#readme"
+}
