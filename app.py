@@ -2,6 +2,6 @@ import time
 import sys
 
 while True:
-	print("Hello IoT from Isaax")
+    print("Hello IoT from Isaax")
     sys.stdout.flush()
-	time.sleep(5)
+    time.sleep(5)
