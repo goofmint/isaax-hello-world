@@ -39,4 +39,4 @@ deployment:
   master:
     branch: master
     commands:
-      - node build.sh
+      - node build.js
