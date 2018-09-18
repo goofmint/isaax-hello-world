@@ -48,6 +48,7 @@ jobs:
       - run: yarn install
       - run: node build.js
 
+
 workflows:
   version: 2
   build_and_test:
