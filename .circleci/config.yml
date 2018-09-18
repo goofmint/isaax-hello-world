@@ -35,8 +35,15 @@ jobs:
         
       # run tests!
       - run: yarn test
-deployment:
-  master:
-    branch: master
-    commands:
-      - node build.js
+  deploy:
+    docker:
+      - image: circleci/node:7.10
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run: yarn install
+      - run: node build.js
