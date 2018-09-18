@@ -54,11 +54,11 @@ workflows:
   build_and_test:
     jobs:
       - build:
-          requires:
-            - build
+        requires:
+          - build
       - deploy:
-          requires:
-            - deploy
-          filters:          # ⑤ 
-            branches:
-              only: master
+        requires:
+          - deploy
+        filters:
+          branches:
+            only: master
