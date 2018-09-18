@@ -1,6 +1,6 @@
 {
   "name": "isaax-hello-world",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "",
   "main": "app.js",
   "dependencies": {
@@ -8,6 +8,7 @@
     "superagent": "^3.8.3"
   },
   "devDependencies": {
+    "@octokit/rest": "^15.11.4",
     "mocha": "^5.2.0"
   },
   "scripts": {
@@ -15,6 +16,8 @@
   },
   "repository": {
     "type": "git",
+    "user": "goofmint",
+    "name": "isaax-hello-world",
     "url": "git+https://github.com/goofmint/isaax-hello-world.git"
   },
   "author": "",
