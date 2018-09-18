@@ -2,12 +2,12 @@
   "name": "hello-isaax",
   "version": "",
   "description": "Node.js - raspberry-pi",
-  "main": "app.py",
+  "main": "app.js",
   "author": "",
   "license": "",
   "language":"node",
   "scripts": {
-     "start": "python app.py"
+     "start": "node app.js"
     },
    "dependency": null
 }
