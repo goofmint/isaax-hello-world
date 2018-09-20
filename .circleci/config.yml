@@ -5,10 +5,10 @@
 version: 2
 jobs:
   build:
-    environment:
-      - GOPATH: /home/circleci/go
     docker:
       - image: circleci/golang:1.9
+    environment:
+      - GOPATH: /home/circleci/go
     working_directory: /go/src/github.com/goofmint/isaax-hello-world
     steps:
       - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
@@ -21,6 +21,7 @@ jobs:
       - GOPATH: /home/circleci/go
     working_directory: /go/src/github.com/goofmint/isaax-hello-world
     steps:
+      - checkout
       - run: go build -o dist/main
       - run: go get github.com/tcnksm/ghr
       - ghr -t ${GITHUB_TOKEN} -u ${USER_NAME} -r ${REPO_NAME} --replace $(cat VERSION) dist/
@@ -34,7 +35,6 @@ workflows:
       - deploy:
           requires:
             - build 
-            - deploy
           filters:
             branches:
               only: master
