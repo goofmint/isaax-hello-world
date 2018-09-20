@@ -21,9 +21,9 @@ jobs:
       - GOPATH: /home/circleci/go
     working_directory: ~/repo
     steps:
-      - run: go build -o main
+      - run: go build -o dist/main
       - run: go get github.com/tcnksm/ghr
-      - ghr -t ${GITHUB_TOKEN} -u ${USER_NAME} -r ${REPO_NAME} --replace $(cat VERSION) main
+      - ghr -t ${GITHUB_TOKEN} -u ${USER_NAME} -r ${REPO_NAME} --replace $(cat VERSION) dist/
 
 workflows:
   version: 2
