@@ -5,44 +5,27 @@
 version: 2
 jobs:
   build:
+    environment:
+      - GOPATH: /home/circleci/go
     docker:
-      # specify the version you desire here
-      - image: circleci/node:7.10
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
+      - image: circleci/golang:1.9
     working_directory: ~/repo
-
     steps:
+      - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
       - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
-      - run: yarn install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: yarn test
+      - run: go test
   deploy:
     docker:
       - image: circleci/node:7.10
+    environment:
+      - GOPATH: /home/circleci/go
     working_directory: ~/repo
     steps:
+      - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
       - checkout
-      - run: yarn install
-      - run: node build.js
+      - run: go build -o main
+      - run: go get github.com/tcnksm/ghr
+      - ghr -t ${GITHUB_TOKEN} -u ${USER_NAME} -r ${REPO_NAME} --replace $(cat VERSION) main
 
 workflows:
   version: 2
