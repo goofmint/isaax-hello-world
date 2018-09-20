@@ -21,8 +21,6 @@ jobs:
       - GOPATH: /home/circleci/go
     working_directory: ~/repo
     steps:
-      - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
-      - checkout
       - run: go build -o main
       - run: go get github.com/tcnksm/ghr
       - ghr -t ${GITHUB_TOKEN} -u ${USER_NAME} -r ${REPO_NAME} --replace $(cat VERSION) main
