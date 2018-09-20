@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     environment:
-      - GOPATH: ~/go
+      - GOPATH: /home/circleci/go
     docker:
       - image: circleci/golang:1.9
     working_directory: ~/repo
@@ -17,6 +17,8 @@ jobs:
   deploy:
     docker:
       - image: circleci/node:7.10
+    environment:
+      - GOPATH: /home/circleci/go
     working_directory: ~/repo
     steps:
       - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
