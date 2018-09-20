@@ -23,7 +23,7 @@ jobs:
     steps:
       - run: echo 'export PATH=${GOPATH}/bin/:${PATH}' >> $BASH_ENV
       - checkout
-      - run: go build -o dist/main
+      - run: env GOOS=linux GOARCH=arm GOARM=5 go build -o dist/main
       - run: go get github.com/tcnksm/ghr
       - run: ghr -t ${GITHUB_TOKEN} -u ${USER_NAME} -r ${REPO_NAME} --replace $(cat VERSION) dist/
 
