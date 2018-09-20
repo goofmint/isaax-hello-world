@@ -16,7 +16,7 @@ jobs:
       - run: go test
   deploy:
     docker:
-      - image: circleci/node:7.10
+      - image: circleci/golang:1.9
     environment:
       - GOPATH: /home/circleci/go
     working_directory: ~/repo
