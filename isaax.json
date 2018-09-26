@@ -5,7 +5,7 @@
   "main": "app.js",
   "author": "",
   "license": "",
-  "language":"Go",
+  "language":"Node",
   "scripts": {
      "start": "node app.js"
     },
