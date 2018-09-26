@@ -1,4 +1,9 @@
+var Mcp3008 = require('mcp3008.js'),
+    adc = new Mcp3008(),
+    channel = 0;
+
 setInterval(() => {
-  console.log("こんにちは、isaax。私は Raspberry Piです！");
-  // 編集
-}, 8000);
+  adc.read(channel, function (value) {
+    console.log(value);
+  });
+}, 1000);
