@@ -5,6 +5,6 @@ var Mcp3008 = require('mcp3008.js'),
 setInterval(async () => {
   adc.read(channel, function (value) {
     const obj = {pressure: value};
-    console.log(obj);
+    console.log(JSON.stringify(obj));
   });
 }, 2000);
